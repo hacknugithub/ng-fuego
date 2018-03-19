@@ -10,7 +10,7 @@ export const environment = {
     authDomain: "ngfuego-com.firebaseapp.com",
     databaseURL: "https://ngfuego-com.firebaseio.com",
     projectId: "ngfuego-com",
-    storageBucket: "",
+    storageBucket: "ngfuego-com.appspot.com",
     messagingSenderId: "580040483341"
   }
 };

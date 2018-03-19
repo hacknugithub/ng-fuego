@@ -48,8 +48,8 @@ export class SigninComponent implements OnInit {
     return this.auth.emailSignIn(this.email.value, this.password.value)
       .then(user => {
         if (this.signInForm.valid) {
-          this.location.back();
-          // this.router.navigate(['/'])
+          // this.location.back();
+          this.router.navigate(['/'])
         }
       })
   }
