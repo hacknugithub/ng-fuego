@@ -1,0 +1,16 @@
+.user-title {
+    margin-left: 1em;
+}
+mat-card {
+    margin: 10px;
+    width: 300px;
+}
+img {
+    height: 100px;
+}
+
+mat-card-content {
+    margin-top: 1em;
+    display: block;
+    align-content: center;
+}

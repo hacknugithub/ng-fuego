@@ -19,6 +19,7 @@ const routes: Routes = [
     SharedModule,
     RouterModule.forChild(routes)
   ],
+  exports: [UserListItemComponent],
   declarations: [UserDashboardComponent, UserDetailComponent, UserListComponent, UserListItemComponent],
   providers: [UserService]
 })
