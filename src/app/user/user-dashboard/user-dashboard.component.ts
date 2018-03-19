@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user.model';
+import {AuthService} from '../../core/auth.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
+  editing = false;
+  user: User;
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.getUser()
+  }
+
+  getUser() {
+    return this.auth.user.subscribe(user => (this.user = user))
   }
 
 }
