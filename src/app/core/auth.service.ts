@@ -22,6 +22,8 @@ export class AuthService {
 
   user:Observable<User>
 
+  authState: any = null;
+
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -34,6 +36,16 @@ export class AuthService {
         return Observable.of(null)
       }
     })
+
+    this.afAuth.authState.subscribe(data => this.authState = data)
+   }
+
+   get authenticated(): boolean {
+     return this.authState !== null
+   }
+
+   get currentUserId(): string {
+    return this.authenticated ? this.authState.uid : null
    }
 
    emailSignIn(email: string, password: string){
@@ -65,6 +77,31 @@ export class AuthService {
      .then(() => {
        this.router.navigate(['/'])
      })
+   }
+
+   googleLogin() {
+     const provider = new firebase.auth.GoogleAuthProvider()
+     return this.socialLogin(provider)
+   }
+   githubLogin() {
+     const provider = new firebase.auth.GithubAuthProvider()
+     return this.socialLogin(provider)
+   }
+   twitterLogin() {
+     const provider = new firebase.auth.TwitterAuthProvider()
+     return this.socialLogin(provider)
+   }
+   facebookLogin() {
+     const provider = new firebase.auth.FacebookAuthProvider()
+     return this.socialLogin(provider)
+   }
+
+   private socialLogin(provider) {
+     return this.afAuth.auth.signInWithPopup(provider)
+      .then(credential => {
+        return this.updateUserData(credential.user)
+      })
+      .catch(error => console.log(error.message))
    }
 
    private updateUserData(user) {

@@ -20,6 +20,12 @@
       </mat-hint>
 
       <button mat-raised-button type="submit" color="accent">Sign In</button>
+      
+      <p>Tired of yet another password? Continue with:</p>
+      <button mat-raised-button (click)="auth.googleLogin()">Google</button>
+      <button mat-raised-button (click)="auth.twitterLogin()">Twitter</button>
+      <button mat-raised-button (click)="auth.facebookLogin()">Facebook</button>
+      <button mat-raised-button (click)="auth.githubLogin()">GitHub</button>
 
     </form>
   </section>
