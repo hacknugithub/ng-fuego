@@ -11,7 +11,7 @@ import { UserListItemComponent } from './user-list-item/user-list-item.component
 const routes: Routes = [
   { path: 'me', component: UserDashboardComponent, data: { title: "My profile"}},
   { path: 'users', component: UserListComponent, data: { title: "Users"}},
-  { path: 'profile', component: UserDetailComponent, data: { title: "Profile"}},
+  { path: 'users/:id', component: UserDetailComponent, data: { title: "Profile"}},
 ]
 
 @NgModule({
