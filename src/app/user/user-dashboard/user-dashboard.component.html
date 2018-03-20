@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="goBack()">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <span class="spacer"></span>
@@ -20,5 +20,38 @@
             </div>
       </div>
   </div>
-  <div [hidden]="!editing">editing mode</div>
+
+  <div [hidden]="!editing">
+    <mat-card>
+      <mat-form-field>
+        <input matInput placeholder="Update your name" [(ngModel)]="user.displayName">
+        <mat-icon matSuffix (click)="updateProfile()">save</mat-icon>  
+        <mat-hint align="end">Save</mat-hint>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <mat-form-field>
+        <input matInput placeholder="Update your email" [(ngModel)]="user.email">
+        <mat-icon matSuffix (click)="updateEmail()">save</mat-icon>  
+        <mat-hint align="end">Save</mat-hint>
+      </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+      <form (ngSubmit)="updateUser()">
+        <mat-form-field>
+          <input matInput placeholder="Update your website" [(ngModel)]="user.website" name="website">         
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Update your location" [(ngModel)]="user.location" name="location">         
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Update your bio" [(ngModel)]="user.bio" name="bio"></textarea>         
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="accent">Save</button>
+      </form>
+    </mat-card>
+  </div>
+
 </ng-container>

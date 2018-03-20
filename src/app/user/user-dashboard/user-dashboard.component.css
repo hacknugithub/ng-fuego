@@ -2,6 +2,9 @@ mat-toolbar {
     background-color: var(--app-primary-color);
     color: white;
 }
+mat-form-field {
+    width: 80%;
+}
 .photoURL {
     border-radius: 50%;
     border: 2px solid white;
