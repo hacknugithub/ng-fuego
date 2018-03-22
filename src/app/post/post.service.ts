@@ -10,6 +10,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PostService {
   postCollection: AngularFirestoreCollection<Post>
+  postDoc: AngularFirestoreDocument<Post>;
 
   constructor(private afs: AngularFirestore) { 
     this.postCollection = this.afs.collection("posts", ref => 
@@ -24,6 +25,11 @@ export class PostService {
         return { id, ...data };
       });
     });
+  }
+
+  getPostData(id: string){
+    this.postDoc = this.afs.doc<Post>(`posts/${id}`)
+    return this.postDoc.valueChanges();
   }
   
   create(data: Post) {
