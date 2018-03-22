@@ -40,7 +40,8 @@ export class PostDashboardComponent implements OnInit {
 
   savePost(data: Post) {
     const formData: Post = {
-      author: this.auth.currentUserId,
+      author: this.auth.authState.displayName || this.auth.authState.email,
+      authorId: this.auth.currentUserId,
       title: this.postForm.get('title').value,
       image: this.imageURL || null,
       content: this.postForm.get('content').value,
@@ -49,9 +50,9 @@ export class PostDashboardComponent implements OnInit {
       claps: 0
     }
     if (!this.postForm.untouched) {
-      this.postService.create(formData)
-      this.postForm.reset()
-      this.imageURL = ''
+      this.postService.create(formData);
+      this.postForm.reset();
+      this.imageURL = '';
     }
   }
 
