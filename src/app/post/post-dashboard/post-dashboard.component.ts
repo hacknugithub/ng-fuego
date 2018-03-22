@@ -49,10 +49,10 @@ export class PostDashboardComponent implements OnInit {
       claps: 0
     }
     if (!this.postForm.untouched) {
-      return this.postService.create(formData)
+      this.postService.create(formData)
+      this.postForm.reset()
+      this.imageURL = ''
     }
-    this.postForm.reset()
-    this.imageURL = ''
   }
 
   uploadPostImage(event) {

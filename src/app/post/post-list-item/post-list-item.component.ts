@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class PostListItemComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit() {
   }
 
