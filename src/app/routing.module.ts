@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GalleryListComponent } from './gallery/gallery-list/gallery-list.component';
+import { GalleryModule } from './gallery/gallery.module';
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/users', pathMatch: 'full'},
-  { path: '', component: GalleryListComponent},
-  { path: '', loadChildren: './auth/auth.module#AuthModule' }
+  { path: '', redirectTo: '/users', pathMatch: 'full'},
+  { path: '', loadChildren: () => GalleryModule },
+  { path: "", loadChildren: './auth/auth.module#AuthModule' }
 ]
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class RoutingModule { }

@@ -11,23 +11,24 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   imports: [
     MatButtonModule,
-    MatIconModule,
     MatCardModule,
     MatToolbarModule,
+    MatIconModule,
     MatInputModule,
-    MatSlideToggleModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
     MatGridListModule
   ],
   exports: [
     MatButtonModule,
-    MatIconModule,
     MatCardModule,
     MatToolbarModule,
+    MatIconModule,
     MatInputModule,
-    MatSlideToggleModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
     MatGridListModule
   ]
 })
 export class MaterialModule { }
+
