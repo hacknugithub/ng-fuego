@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GalleryModule } from './gallery/gallery.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full'},
-  { path: '', loadChildren: './auth/auth.module#AuthModule' }
+  { path: '', loadChildren: () => GalleryModule },
+  { path: "", loadChildren: './auth/auth.module#AuthModule' }
 ]
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class RoutingModule { }
