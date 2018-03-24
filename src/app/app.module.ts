@@ -9,6 +9,7 @@ import { CoreModule } from './core/core.module';
 import { RoutingModule } from './/routing.module';
 import { environment } from '../environments/environment';
 import { PostModule } from './post/post.module';
+import { GalleryModule } from './gallery/gallery.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PostModule } from './post/post.module';
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule,
     RoutingModule,
-    PostModule
+    PostModule,
+    GalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
