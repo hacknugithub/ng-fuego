@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { RoutingModule } from './/routing.module';
 import { PostModule } from './post/post.module';
 import { GalleryModule } from './gallery/gallery.module';
+import { ChatModule } from './chat/chat.module';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { GalleryModule } from './gallery/gallery.module';
     SharedModule,
     RoutingModule,
     PostModule,
-    GalleryModule
+    GalleryModule,
+    ChatModule
   ],
   providers: [],
   bootstrap: [AppComponent]
